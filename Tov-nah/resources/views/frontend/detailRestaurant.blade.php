@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+		<title>Booking | {{ $data['name']}} </title>
+		<div style="margin: 5% 20% 3% 20%;">
+            <div class="title">
+                <h1 style="text-align: center; padding-bottom: 15px; border-bottom: 2px solid rgb(235, 156, 9);">Book {{ $data['name']}} Now</h1>
+                <img style="height: auto; width: 100%;" src="{{ $data['image']}}" alt="Angkorwat Temple">
+            </div>
+
+
+            <div class="description" style="padding-top: 20px">
+                <form action="{{ route('BookingRestaurant')}}" method="POST" class="x1" id="nameform">
+                    @csrf
+
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" name="restaurantId" value="{{$data['id']}}">
+                        <input type="hidden" class="form-control" name="restaurantName" value="{{$data['name']}}">
+                        <input type="text" class="form-control" name="name" required placeholder="Your Name">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="phonenumber" class="form-control"  name="phonenumber" required placeholder="Your Phone Number">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" class="form-control"  name="email" required placeholder="Your Email">
+                    </div>
+ 
+                    <div class="form-group">                     
+                        <input type="date" class="form-control" id="estimate" name="date" required placeholder="Date">
+                    </div>          
+                    
+                    <div class="form-group">
+                        <input type="time" class="form-control" id="estimate" name="time" required placeholder="Time">
+                    </div>   
+            
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="estimate" name="amount" required placeholder="Number of People">
+                    </div>  
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="estimate" name="more" required placeholder="More information">
+                    </div>  
+
+
+                    <br>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin: 0 0 40px 0" >Booking Now</button>
+                </form>
+
+                   
+                    <a href="/hotel"> <button type="button" class="btn btn-danger btn-lg btn-block" style="margin: 0 0 40px 0" >Cancel</button></a>
+            </div>
+          
+        </div>
+	
